@@ -104,7 +104,8 @@ module backend 'core/host/appservice.bicep' = {
     appSettings: {
       AZURE_STORAGE_ACCOUNT: storage.outputs.name
       AZURE_STORAGE_CONTAINER: storageContainerName
-      AZURE_OPENAI_SERVICE: openAi.outputs.name
+      //AZURE_OPENAI_SERVICE: openAi.outputs.name
+      AZURE_OPENAI_SERVICE: 'OpenAITestNiko'
       AZURE_SEARCH_INDEX: searchIndexName
       AZURE_SEARCH_SERVICE: searchService.outputs.name
       AZURE_OPENAI_GPT_DEPLOYMENT: gptDeploymentName
@@ -112,7 +113,7 @@ module backend 'core/host/appservice.bicep' = {
     }
   }
 }
-
+/*
 module openAi 'core/ai/cognitiveservices.bicep' = {
   name: 'openai'
   scope: openAiResourceGroup
@@ -149,6 +150,7 @@ module openAi 'core/ai/cognitiveservices.bicep' = {
     ]
   }
 }
+*/
 
 module formRecognizer 'core/ai/cognitiveservices.bicep' = {
   name: 'formrecognizer'
@@ -313,7 +315,7 @@ output AZURE_LOCATION string = location
 output AZURE_TENANT_ID string = tenant().tenantId
 output AZURE_RESOURCE_GROUP string = resourceGroup.name
 
-output AZURE_OPENAI_SERVICE string = openAi.outputs.name
+//output AZURE_OPENAI_SERVICE string = openAi.outputs.name
 output AZURE_OPENAI_RESOURCE_GROUP string = openAiResourceGroup.name
 output AZURE_OPENAI_GPT_DEPLOYMENT string = gptDeploymentName
 output AZURE_OPENAI_CHATGPT_DEPLOYMENT string = chatGptDeploymentName
